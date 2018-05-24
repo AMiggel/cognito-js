@@ -1,3 +1,6 @@
+
+var CognitoUserPool = AmazonCognitoIdentity.CognitoUserPool;
+
 var poolData = {
         UserPoolId : 'us-east-2_lSJDJsAdz',
         ClientId : '4m2o077tluja59k0k365i3vnat'
@@ -9,7 +12,7 @@ var poolData = {
 
     var dataEmail = {
         Name : 'email',
-        Value : ''
+        Value : 'amarin@unac.edu.co'
     };
 
     //console.log(dataEmail)
@@ -37,8 +40,10 @@ var poolData = {
     attributeList.push(attributePhoneNumber);
 
 
-    function registro (){
-        userPool.signUp('q','123456789', attributeList, null, function(err, result){
+    function registrar (){
+
+        userPool.signUp('Antonio','12345678', attributeList, null, function(err, result){
+
         if (err) {
             alert(err.message || JSON.stringify(err));
             return;
@@ -46,9 +51,47 @@ var poolData = {
         cognitoUser = result.user;
         alert('Registro exitoso! Su nombre de usuario es' + cognitoUser.getUsername());
         document.getElementById("boton").innerHTML = "Ir a AWS";
+        document.getElementById("datos").innerHTML= attributeList;
+       
+
        });
     }
-    
+
+
+// Funciones adicionales**********************************************
+ 
+var userData = {
+        Username : 'Antonio',
+        Pool : userPool
+};
+
+var cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
+
+
+
+function autenticar(){
+    cognitoUser.confirmRegistration('356851', true, function(err, result) {
+        if (err) {
+            alert(err.message || JSON.stringify(err));
+            return;
+        }
+        document.getElementById("autenticado").innerHTML="usuario autenticado correctamente"
+        console.log('call result: ' + result);
+    });
+}
+
+function eliminar(){
+    cognitoUser.deleteUser(function(err, result) {
+        if (err) {
+            alert(err);
+            return;
+        }
+        console.log('call result: ' + result);
+    });
+
+}
+
+        
 
 
 
