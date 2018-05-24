@@ -16,3 +16,8 @@ module.exports =  {
   AWS_COGNITO_CLIENT_ID: '"4jcmshlse80ab667okni41fbf5"',
   AUTH_TEST_API_ENDPOINT: '"https://t6gychwq8i.execute-api.eu-west-1.amazonaws.com/prod"'
 }
+
+
+
+
+https://www.youtube.com/watch?v=abTy-Yyo6lI
