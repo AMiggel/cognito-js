@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 
 var CognitoUserPool = AmazonCognitoIdentity.CognitoUserPool;
 var AWSCognito = AmazonCognitoIdentity.AWSCognito;
 
+=======
+>>>>>>> parent of 9f223ee... agrgando funciones
 var poolData = {
         UserPoolId : 'us-east-2_lSJDJsAdz',
         ClientId : '4m2o077tluja59k0k365i3vnat'
@@ -13,7 +16,7 @@ var poolData = {
 
     var dataEmail = {
         Name : 'email',
-        Value : 'amarin@unac.edu.co'
+        Value : ''
     };
 
     //console.log(dataEmail)
@@ -41,10 +44,8 @@ var poolData = {
     attributeList.push(attributePhoneNumber);
 
 
-    function registrar (){
-
-        userPool.signUp('Antonio','12345678', attributeList, null, function(err, result){
-
+    function registro (){
+        userPool.signUp('q','123456789', attributeList, null, function(err, result){
         if (err) {
             alert(err.message || JSON.stringify(err));
             return;
@@ -52,11 +53,9 @@ var poolData = {
         cognitoUser = result.user;
         alert('Registro exitoso! Su nombre de usuario es' + cognitoUser.getUsername());
         document.getElementById("boton").innerHTML = "Ir a AWS";
-        document.getElementById("datos").innerHTML= attributeList;
-       
-
        });
     }
+<<<<<<< HEAD
 
 
 // Funciones adicionales**********************************************
@@ -124,6 +123,9 @@ function singIn (){
 
 
         
+=======
+    
+>>>>>>> parent of 9f223ee... agrgando funciones
 
 
 
