@@ -80,6 +80,8 @@ function autenticar(){
     });
 }
 
+
+
 function eliminar(){
     cognitoUser.deleteUser(function(err, result) {
         if (err) {
@@ -90,6 +92,34 @@ function eliminar(){
     });
 
 }
+
+
+
+function singIn (){
+    var authenticationData = {
+        Username : 'Antonio',
+        Password : '12345678',
+    };
+    var authenticationDetails = new AWSCognito.CognitoIdentityServiceProvider.AuthenticationDetails(authenticationData);
+    var userData = {
+        Username : 'Antonio',
+        Pool : userPool
+    };
+    var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
+    cognitoUser.authenticateUser(authenticationDetails, {
+        onSuccess: function (result) {
+            console.log('access token + ' + result.getAccessToken().getJwtToken());
+            /*Use the idToken for Logins Map when Federating User Pools with identity pools or when passing through an Authorization Header to an API Gateway Authorizer*/
+            console.log('idToken + ' + result.idToken.jwtToken);
+        },
+
+        onFailure: function(err) {
+            alert(err);
+        },
+
+    });
+}
+
 
         
 
