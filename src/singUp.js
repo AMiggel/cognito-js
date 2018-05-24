@@ -1,5 +1,6 @@
 
 var CognitoUserPool = AmazonCognitoIdentity.CognitoUserPool;
+var AWSCognito = AmazonCognitoIdentity.AWSCognito;
 
 var poolData = {
         UserPoolId : 'us-east-2_lSJDJsAdz',
@@ -92,6 +93,7 @@ function eliminar(){
     });
 
 }
+
 
 
 
